@@ -56,7 +56,6 @@ describe("Rover class", function() {
 //test 12
 
   it("responds with a false completed value when attempting to move in LOW_POWER mode", function() {
-    //expect here - check "completed" property for accuracy and confirm that rovers position did not change
     const sampleCommands = [new Command("STATUS_CHECK"), new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE", 444)];
     const sampleMessage = new Message("test message", sampleCommands);
     const sampleRover = new Rover(888, "NORMAL", 111);  
@@ -71,9 +70,13 @@ describe("Rover class", function() {
   });
 
 //test 13
-/*
   it("responds with the position for the move command", function() {
+    const sampleCommands = [new Command("STATUS_CHECK"), new Command("MOVE", 2222), new Command("STATUS_CHECK")];
+    const sampleMessage = new Message("test message", sampleCommands);
+    const sampleRover = new Rover(1111, "NORMAL", 111);  
+    sampleRover.receiveMessage(sampleMessage);
     //expect here
+    expect(sampleRover.position).toBe(2222);
   });
-*/
+
 });
