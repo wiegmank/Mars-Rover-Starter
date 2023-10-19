@@ -1,5 +1,4 @@
 class Message {
-   // Write code here!
    constructor(name, commands){
       this.name = name;
       if (!name) {
@@ -8,5 +7,4 @@ class Message {
       this.commands = commands;
    }
 }
-
 module.exports = Message;

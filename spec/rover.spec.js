@@ -5,7 +5,6 @@ const Command = require('../command.js');
 // NOTE: If at any time, you want to focus on the output from a single test, feel free to comment out all the others.
 //       However, do NOT edit the grading tests for any reason and make sure to un-comment out your code to get the autograder to pass.
 
-
 describe("Rover class", function() {
 
 //test 7
@@ -26,7 +25,6 @@ describe("Rover class", function() {
     const sampleCommands = [new Command("STATUS_CHECK"), new Command("STATUS_CHECK")];
     const sampleMessage = new Message("test message", sampleCommands)
     const sampleRover = new Rover(2);
-    //console.log(sampleRover.receiveMessage(sampleMessage).results);
     expect(sampleRover.receiveMessage(sampleMessage).results.length).toBe(2);
   });
 //test 10
@@ -54,13 +52,11 @@ describe("Rover class", function() {
   });
 
 //test 12
-
   it("responds with a false completed value when attempting to move in LOW_POWER mode", function() {
     const sampleCommands = [new Command("STATUS_CHECK"), new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE", 444)];
     const sampleMessage = new Message("test message", sampleCommands);
     const sampleRover = new Rover(888, "NORMAL", 111);  
     sampleRover.receiveMessage(sampleMessage);
-    //expect rover in low-power to have same position after a "move" command
     expect(sampleRover.receiveMessage(sampleMessage).results[2].completed).toEqual(false) 
     expect(sampleRover).toEqual(expect.objectContaining({
       mode: "LOW_POWER",
@@ -75,7 +71,6 @@ describe("Rover class", function() {
     const sampleMessage = new Message("test message", sampleCommands);
     const sampleRover = new Rover(1111, "NORMAL", 111);  
     sampleRover.receiveMessage(sampleMessage);
-    //expect here
     expect(sampleRover.position).toBe(2222);
   });
 

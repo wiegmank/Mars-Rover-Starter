@@ -1,5 +1,4 @@
 class Rover {
-   // Write code here!
    constructor(position, mode = "NORMAL", generatorWatts = 110) {
       this.mode = mode;
       this.generatorWatts = generatorWatts;
@@ -22,17 +21,12 @@ class Rover {
                   position: this.position
                }
             });
-         } //#### USE ABOVE STRUCTURE FOR COMMAND TYPE LOGIC!!!!
+         }
          
          else if (message.commands[i].commandType === "MODE_CHANGE") {
             if (message.commands[i].value === "NORMAL" || message.commands[i].value === "LOW_POWER") {
                response.results.push({
                   completed: true,
-                  //roverStatus: {
-                     //mode: message.commands[i].value,
-                     //generatorWatts: this.generatorWatts,
-                     //position: this.position
-                  //} //change above block for MODE_CHANGE command spec
                }); this.mode = message.commands[i].value;
             };
          } else if (message.commands[i].commandType === "MOVE") {
@@ -48,7 +42,6 @@ class Rover {
             }
          } 
       }
-      //console.log(response)
       return response;
    }
 }
